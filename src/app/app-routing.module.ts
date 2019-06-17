@@ -5,7 +5,16 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductGetComponent } from './product-get/product-get.component';
 
 const routes: Routes = [
-  { path: 'product/create',
+  {
+    /**
+     * URI - Unifrom Resource Identifier
+     * The URI is a string of characters designed for
+     * unambiguous identification of resources
+     */
+    path: 'product/create',
+    /**
+     * Component to render when URI mataches above
+     */
     component: ProductAddComponent
   },
   {
@@ -19,7 +28,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes)], // Root route, equivalent to homepage in SPA
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

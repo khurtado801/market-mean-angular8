@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
 import { NavigationCancel,
         Event,
@@ -15,8 +15,15 @@ import { NavigationCancel,
 export class AppComponent {
   title = 'angular8tutorial';
   constructor(
+    /**
+     * Constructor injection.
+     * This is used when the object to instantiate has no defaults.
+     * And where all the collaborators and values need to be supplied
+     * before you can instantiate the object.
+     */
     private loadingBar: SlimLoadingBarService,
-    private router: Router) {
+    private router: Router
+    ) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
