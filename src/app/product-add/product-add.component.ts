@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product-add',
@@ -14,7 +15,8 @@ export class ProductAddComponent implements OnInit {
    * In the constructor we are creating a form with the validation rules
    */
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private ps: ProductsService
   ) {
     this.createForm(); // Call to createForm
   }
@@ -38,6 +40,13 @@ export class ProductAddComponent implements OnInit {
       ProductDescription: ['', Validators.required],
       ProductPrice: ['', Validators.required]
     });
+  }
+
+  /**
+   * addProduct dmethod efinition
+   */
+  addProduct(ProductName, ProductDescription, ProductPrice) {
+    this.ps.addProduct(ProductName, ProductDescription, ProductPrice);
   }
 
   ngOnInit() {

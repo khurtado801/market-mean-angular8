@@ -1,5 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+/**
+ * Most frontend applications communicate with the backend services
+ * over an HTTP protocol. Modern browsers support the two different APIs
+ * for making HTTP requests: the XMLHttpRequest interface and the fetch() API.
+ * The HttpClient offers a simplified client HTTP API for Angular applications
+ * that rests on the XLMHttpRequest interface exposed by browsers.
+ */
+import { HttpClientModule } from '@angular/common/http';
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 /**
@@ -13,6 +21,7 @@ import { AppComponent } from './app.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGetComponent } from './product-get/product-get.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductService, ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
@@ -26,9 +35,12 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
     AppRoutingModule,
     SlimLoadingBarModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
