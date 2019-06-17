@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
 import { ProductAddComponent } from './product-add/product-add.component';
 import { ProductGetComponent } from './product-get/product-get.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductService, ProductsService } from './products.service';
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [
